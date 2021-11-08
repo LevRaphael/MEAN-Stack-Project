@@ -8,7 +8,9 @@ export class AppServiceService {
 
   constructor( private http: HttpClient) { }
 
+  baseUrl = 'http://localhost:3000'
+
   getData() {
-    return this.http.get('/api/getData');
+    return this.http.get( this.baseUrl + '/api/getData');
   }
 }

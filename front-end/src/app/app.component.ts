@@ -11,16 +11,17 @@ export class AppComponent implements OnInit {
 
   constructor(private service: AppServiceService) { }
 
-  ngOnInit(): void {
-    this.title = this.getDataFromApi();
+  ngOnInit() {
+     this.getDataFromApi();
   }
 
   getDataFromApi() {
     this.service.getData().subscribe(
       (response) => {
-      console.log('Response from api', response);
+      return response
     }, (error) => {
-      console.log('Error is', error);
+      return error
+      
     })
   }
 }

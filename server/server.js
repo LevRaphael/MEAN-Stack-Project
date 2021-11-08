@@ -3,9 +3,16 @@ const http = require('http');
 const mongoose = require('mongoose');
 const dbConfig = require('./config/database.config');
 const routes = require('./routes/base.route');
-
+const cors = require('cors');
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Credentials', '*');
+    next();
+});
 
 app.get('/api/getData', function (req, res) {
     res.send('API works!');
