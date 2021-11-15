@@ -13,8 +13,6 @@ describe('AppServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
 });
 
-// mocha ; just ; jasmine ;
-// ng test ;
-// get data ;

@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
       return response
     }, (error) => {
       return error
-      
     })
+    return 'API works!'
   }
 }
