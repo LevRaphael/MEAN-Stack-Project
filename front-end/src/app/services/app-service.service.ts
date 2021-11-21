@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
+
 export class AppServiceService {
 
   constructor( private http: HttpClient) { }
@@ -12,6 +13,9 @@ export class AppServiceService {
   baseUrl = 'http://localhost:3000'
 
   getData() {
-    return this.http.get( this.baseUrl + '/api/getData');
+    var data = this.http.get( this.baseUrl + '/api/getData');
+    console.log('data', data);
+
+    return data;
   }
 }

@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/getData', function (req, res) {
-    res.send('API works!');
+    res.send({"test":"API works!"});
 });
 
 app.listen(port, () => {

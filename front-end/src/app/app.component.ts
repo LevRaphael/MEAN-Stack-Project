@@ -16,12 +16,12 @@ export class AppComponent implements OnInit {
   }
 
   getDataFromApi() {
-    this.service.getData().subscribe(
+   this.service.getData().subscribe(
       (response) => {
-      return response
+      this.title = response;
+      return response;
     }, (error) => {
       return error
     })
-    return 'API works!'
   }
 }
