@@ -12,7 +12,6 @@ describe('AppServiceService', () => {
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule ]
     });
-    httpClient = TestBed.inject(HttpClient);
     service = TestBed.inject(AppServiceService);
   });
 
@@ -20,7 +19,7 @@ describe('AppServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('test HttpClient getData', () => {
+  it('test HttpClient getData', async() => {
     const testData = {"test":"API works!"};
     httpClient.get('http://localhost:3000/api/getData')
       .subscribe(data =>

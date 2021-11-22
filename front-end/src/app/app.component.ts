@@ -19,9 +19,8 @@ export class AppComponent implements OnInit {
    this.service.getData().subscribe(
       (response) => {
       this.title = response;
-      return response;
     }, (error) => {
-      return error
+      console.error("No data recived")
     })
   }
 }

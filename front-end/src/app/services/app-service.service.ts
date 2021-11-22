@@ -8,14 +8,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppServiceService {
 
-  constructor( private http: HttpClient) { }
-
   baseUrl = 'http://localhost:3000'
 
-  getData() {
-    var data = this.http.get( this.baseUrl + '/api/getData');
-    console.log('data', data);
+  constructor( private http: HttpClient) { }
 
-    return data;
+  getData() {
+    return this.http.get( this.baseUrl + '/api/getData');
   }
 }

@@ -34,12 +34,4 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('front-end app is running!');
   });
-
-  //  it('shoud return `API works!`', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance.getDataFromApi();
-  //   expect(app).toContain('API works!');
-  // });
-
-
 });
