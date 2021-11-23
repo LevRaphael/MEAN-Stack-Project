@@ -1,18 +1,19 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule }
+import { HttpClientTestingModule, HttpTestingController }
         from '@angular/common/http/testing';
 import { AppServiceService } from './app-service.service';
-import { HttpClient } from '@angular/common/http';
 
 describe('AppServiceService', () => {
   let service: AppServiceService;
-  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule ]
     });
     service = TestBed.inject(AppServiceService);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
@@ -21,12 +22,10 @@ describe('AppServiceService', () => {
 
   it('test HttpClient getData', async() => {
     const testData = {"test":"API works!"};
-    httpClient.get('http://localhost:3000/api/getData')
-      .subscribe(data =>
-        expect(data).toEqual(testData)
-      );
-
+    service.getData().subscribe(
+      value => expect(value).toEqual(testData));
+    const req = httpTestingController.expectOne(service.baseUrl + '/api/getData');
+    req.flush(testData);
   });
-
 });
 
