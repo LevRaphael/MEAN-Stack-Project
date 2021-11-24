@@ -5,11 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 
+
 export class AppServiceService {
 
-  constructor( private http: HttpClient) { }
-
   baseUrl = 'http://localhost:3000'
+
+  constructor( private http: HttpClient) { }
 
   getData() {
     return this.http.get( this.baseUrl + '/api/getData');
