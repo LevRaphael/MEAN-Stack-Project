@@ -17,15 +17,16 @@ describe('AppServiceService', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeDefined();
   });
 
-  it('test HttpClient getData', async() => {
+  it('test getData', async() => {
     const testData = {"test":"API works!"};
     service.getData().subscribe(
       value => expect(value).toEqual(testData));
     const req = httpTestingController.expectOne(service.baseUrl + '/api/getData');
     req.flush(testData);
   });
+
 });
 

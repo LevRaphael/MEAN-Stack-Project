@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AppServiceService } from './services/app-service.service';
+import {Component, OnInit} from '@angular/core';
+import {AppServiceService} from './services/app-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +7,30 @@ import { AppServiceService } from './services/app-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   title: any;
 
-  constructor(private service: AppServiceService) { }
+  constructor(private service: AppServiceService) {
+  }
 
   ngOnInit() {
-     this.getDataFromApi();
+    console.log('TEST NG_INIT')
+    this.getDataFromApi();
   }
 
   getDataFromApi() {
-   this.service.getData().subscribe(
-      (response) => {
-      this.title = response;
-    }, (error) => {
-      console.error("No data recived")
-    })
+    console.log('TEST getDataFromApi')
+    this.service.getData().subscribe(
+      {
+        next: (response) => {
+          console.log('TEST RESPONSE')
+          this.title = response
+        },
+        error: (error) => {
+          console.log('TEST ERROR')
+          console.error(error)
+        }
+      })
   }
+
 }
